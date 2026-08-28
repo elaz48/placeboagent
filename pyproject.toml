@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "placeboagent"
+version = "0.0.1"
+description = "Fake AG-UI agent backend for testing. Deterministic scripted event streams, session record & replay, failure injection. No LLM needed."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Balazs Hende" }]
+keywords = ["ag-ui", "testing", "test-double", "mock-server", "ai-agents", "sse", "fastapi", "starlette", "pytest"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Testing :: Mocking",
+]
+dependencies = [
+    "ag-ui-protocol",
+    "starlette",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.urls]
+Repository = "https://github.com/elaz48/placeboagent"
+Documentation = "https://github.com/elaz48/placeboagent#readme"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/placeboagent"]
